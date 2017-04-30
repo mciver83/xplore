@@ -1,25 +1,46 @@
 {
-  "name": "TravelPlanner",
+  "name": "Xplore",
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "lint": "node_modules/.bin/eslint .",
+    "lint:fix": "yarn run lint -- --fix || true",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "mocha --require specs/setup --recursive specs/",
+    "test:watch": "yarn test -- --watch"
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "lodash": "^4.17.4",
-    "react": "15.4.2",
+    "moment": "^2.18.1",
+    "ramda": "^0.23.0",
+    "react": "~15.4.1",
     "react-native": "0.42.0",
-    "react-native-vector-icons": "^4.0.0"
+    "react-native-swiper": "^1.5.4",
+    "react-native-vector-icons": "^4.0.0",
+    "react-redux": "^5.0.3",
+    "react-router-native": "^4.0.0",
+    "redux": "^3.6.0",
+    "redux-form": "^6.5.0",
+    "redux-persist": "^4.4.2",
+    "redux-saga": "^0.14.3",
+    "reselect": "^2.5.4",
+    "styled-components": "^1.4.4",
+    "validate.js": "^0.11.1"
   },
   "devDependencies": {
-    "babel-jest": "19.0.0",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-react-native": "1.9.1",
-    "jest": "19.0.2",
-    "react-test-renderer": "15.4.2"
-  },
-  "jest": {
-    "preset": "react-native"
+    "babel-register": "^6.24.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.7.1",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "mocha": "^3.2.0",
+    "react-native-mock": "^0.3.1",
+    "react-test-renderer": "~15.4.1",
+    "redux-logger": "^2.8.2"
   }
 }
