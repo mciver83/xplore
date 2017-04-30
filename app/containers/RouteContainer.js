@@ -1,13 +1,11 @@
 import React from 'react';
 import { NativeRouter, Route, Switch } from 'react-router-native';
 
-import { authenticate, LoginContainer } from './auth';
+import { LoginContainer } from './auth';
 import AppContainer from './AppContainer';
 import Home from '../components/Home';
 import Profile from '../components/Profile';
 import Dashboard from '../components/Dashboard';
-// import TripsRoutesContainer from './trips/TripsRoutesContainer';
-
 
 const RouteContainer = () => (
   <NativeRouter>
@@ -16,7 +14,7 @@ const RouteContainer = () => (
         <Route path="/" exact component={Home} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/profile" component={Profile} />
-			
+
         <Route path="/auth/login" component={LoginContainer} />
       </Switch>
     </AppContainer>
