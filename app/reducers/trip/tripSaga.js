@@ -9,7 +9,7 @@ import tripActions, { TripActionConstants } from './tripActions';
 
 function* getTrips({ payload: { personId } }) {
   try {
-    const response = yield network.get(`/people/${personId}/pto_requests`);
+    const response = yield network.get(`/people/${personId}/trips`);
     const trips = response.data.data;
 
     yield put(tripActions.set(trips));
@@ -21,7 +21,7 @@ function* getTrips({ payload: { personId } }) {
 
 function* getTrip({ payload: { personId, id } }) {
   try {
-    const response = yield network.get(`/people/${personId}/pto_requests/${id}`);
+    const response = yield network.get(`/people/${personId}/trips/${id}`);
     const trip = response.data.data;
 
     yield put(tripActions.upsert(trip.id, trip));
@@ -33,7 +33,7 @@ function* getTrip({ payload: { personId, id } }) {
 
 function* createTrip({ payload: { personId, newTrip } }) {
   try {
-    const response = yield network.post(`/people/${personId}/pto_requests`, newTrip);
+    const response = yield network.post(`/people/${personId}/trips`, newTrip);
     const trip = response.data.data;
 
     yield put(tripActions.upsert(trip.id, trip));
@@ -45,7 +45,7 @@ function* createTrip({ payload: { personId, newTrip } }) {
 
 function* updateTrip({ payload: { personId, id, updatedTrip } }) {
   try {
-    const response = yield network.put(`people/${personId}/pto_requests/${id}`, updatedTrip);
+    const response = yield network.put(`people/${personId}/trips/${id}`, updatedTrip);
     const trip = response.data.data;
 
     yield put(tripActions.upsert(trip.id, trip));
@@ -57,7 +57,7 @@ function* updateTrip({ payload: { personId, id, updatedTrip } }) {
 
 function* deleteTrip({ payload: { personId, id } }) {
   try {
-    yield network.delete(`people/${personId}/pto_requests/${id}`);
+    yield network.delete(`people/${personId}/trips/${id}`);
     yield put(tripActions.remove(id));
     yield put(tripActions.deleteTripSuccess());
   } catch (error) {

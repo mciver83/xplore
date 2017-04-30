@@ -39,7 +39,7 @@ describe('tripSaga', function () {
 
     it('will call the API', function () {
       const { personId } = setup();
-      expect(iterator.next().value).to.eql(network.get(`/people/${personId}/pto_requests`));
+      expect(iterator.next().value).to.eql(network.get(`/people/${personId}/trips`));
     });
 
     context('when an error is raised', function () {
@@ -78,7 +78,7 @@ describe('tripSaga', function () {
 
     it('will call the API', function () {
       const { personId, trip: { id } } = setup();
-      expect(iterator.next().value).to.eql(network.get(`/people/${personId}/pto_requests/${id}`));
+      expect(iterator.next().value).to.eql(network.get(`/people/${personId}/trips/${id}`));
     });
 
     context('when an error is raised', function () {
@@ -119,7 +119,7 @@ describe('tripSaga', function () {
     it('will call the API', function () {
       const { personId, trip: newTrip } = setup();
       expect(iterator.next().value).to.eql(
-        network.post(`/people/${personId}/pto_requests`, newTrip));
+        network.post(`/people/${personId}/trips`, newTrip));
     });
 
     context('when an error is raised', function () {
@@ -161,7 +161,7 @@ describe('tripSaga', function () {
 
     it('will call the API', function () {
       const { personId, trip: { id }, updatedTrip } = setup();
-      const url = `people/${personId}/pto_requests/${id}`;
+      const url = `people/${personId}/trips/${id}`;
       expect(iterator.next().value).to.eql(network.put(url, updatedTrip));
     });
 
@@ -200,7 +200,7 @@ describe('tripSaga', function () {
 
     it('will call the API', function () {
       const { personId, trip: { id } } = setup();
-      const url = `people/${personId}/pto_requests/${id}`;
+      const url = `people/${personId}/trips/${id}`;
       expect(iterator.next().value).to.eql(network.delete(url));
     });
 

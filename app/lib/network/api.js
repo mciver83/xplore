@@ -9,7 +9,7 @@ const defaultConfig = freeze({
   ...Platform.select({
     ios: {
       // Base URL.
-      baseURL: 'http://localhost:3000/api/mobile/v1',
+      baseURL: 'http://localhost:3000/api/mobile/',
 
       // Not used by axios directly. Instead set `baseURL = defaultConfig.authURL`.
       authURL: 'http://localhost:3000/api/auth',
@@ -17,7 +17,7 @@ const defaultConfig = freeze({
 
     android: {
       // Base URL.
-      baseURL: 'http://192.168.1.160:3000/api/mobile/v1',
+      baseURL: 'http://192.168.1.160:3000/api/mobile/',
 
       // Not used by axios directly. Instead set `baseURL = defaultConfig.authURL`.
       authURL: 'http://192.168.1.160:3000/api/auth',
